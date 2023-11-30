@@ -21,7 +21,8 @@ export const updateCandlestick = (series, setSeries, dataBatch) => {
 }
 
 const accumulateFromBatch = (dataBatch, startIndex) => {
-    const result = new Array(5).fill(0); // [timestamp, low, high, open, close]
+    let result = new Array(5).fill(0); // [timestamp, low, high, open, close]
+    // chart: open - high - low - close
 
     result[3] = dataBatch[0][3];
 
@@ -31,6 +32,10 @@ const accumulateFromBatch = (dataBatch, startIndex) => {
         result[2] = Math.max(result[2], dataBatch[i][2]);
         result[4] = dataBatch[i][4];
     }
+
+    // changing from [timestamp, low, high, open, close]
+    // to [timestamp, open, high, low, close]
+    result = [result[0], result[3], result[2], result[1], result[4]];
 
     return result;
 }
