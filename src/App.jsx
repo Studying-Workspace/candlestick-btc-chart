@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import './App.css'
-import {CandlestickChart} from "./CandlestickChart.jsx";
+import {CandlestickChart} from "./components/CandlestickChart.jsx";
 
 function App() {
 
