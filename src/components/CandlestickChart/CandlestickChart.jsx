@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
-
+import {updateCandlestick} from "../../../utilities.js";
 export const CandlestickChart = ({data}) => {
 
     const [series, setSeries] = useState([
@@ -28,12 +28,6 @@ export const CandlestickChart = ({data}) => {
         //         })
         //     }
         // ];
-        // on every fetch from the api
-
-        // -> add a new candle
-        // call the routine
-        //      the routine runs 6 times
-        //      after that we clear the interval and finish the routine
 
         // to add a new candle -> check first if the state already contains 60 objects
         let newSeries = series;
@@ -43,7 +37,7 @@ export const CandlestickChart = ({data}) => {
             newSeries[0].data.unshift();
         }
         setSeries(newSeries);
-
+        updateCandlestick()
     }, [data, series]);
 
     const [options, setOptions] = useState({
