@@ -17,16 +17,14 @@ export const CandlestickChart = ({data}) => {
     // chart: open - high - low - close
     // api: timestamp - low - high - open - close - _volume
     useEffect(() => {
-        // to add a new candle -> check first if the state already contains 60 objects
-        let newSeries = series;
-
-        newSeries[0]?.data.push({x: new Date(), y: []});
+        let newSeries = [...series];
+        newSeries[0].data.push({x: new Date(), y: []});
         if(newSeries[0]?.data.length > 60) {
             newSeries[0].data.unshift();
         }
         setSeries(newSeries);
-        updateCandlestick(series, setSeries, data);
-    }, [data, series]);
+        updateCandlestick([...series], setSeries, [...data]);
+    }, [data]);
 
     const [options, setOptions] = useState({
         chart: {

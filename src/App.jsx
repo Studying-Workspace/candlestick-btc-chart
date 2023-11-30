@@ -14,7 +14,7 @@ function App() {
         },
         refetchInterval: 60 * 1000,
         refetchIntervalInBackground: true,
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: true,
     });
 
     return (
