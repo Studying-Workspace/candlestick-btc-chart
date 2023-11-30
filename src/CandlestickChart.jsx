@@ -44,7 +44,6 @@ export const CandlestickChart = ({data}) => {
         }
         setSeries(newSeries);
 
-
     }, [data, series]);
 
     const [options, setOptions] = useState({
