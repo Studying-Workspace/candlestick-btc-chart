@@ -18,7 +18,8 @@
     "apexcharts": "^3.44.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
