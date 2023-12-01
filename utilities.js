@@ -3,7 +3,6 @@ const DATA_PER_UPDATE = 50;
 export const updateCandlestick = (series, setSeries, dataBatch) => {
     let updates = 1;
     let accumulated = accumulateFromBatch(dataBatch, 0);
-    makeUpdate(accumulated, series, setSeries);
 
     const updateRoutine = () => {
         accumulated = accumulateFromBatch(dataBatch, DATA_PER_UPDATE * updates);
