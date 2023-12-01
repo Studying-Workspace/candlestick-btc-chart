@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import './App.css'
 import {CandlestickChart} from "./components/CandlestickChart/CandlestickChart.jsx";
 import {useQuery} from "@tanstack/react-query";
