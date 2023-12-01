@@ -20,7 +20,7 @@ function App() {
     const {isLoading: isInitialLoading, data: initialData} = useQuery({
         queryKey: ['btc-initial-price'],
         queryFn: async () => {
-            const res = await fetch('https://api.pro.coinbase.com/products/BTC-USD/candles/15m');
+            const res = await fetch('https://api.pro.coinbase.com/products/BTC-USD/candles/1h');
             return await res.json();
         }
     });
@@ -29,7 +29,11 @@ function App() {
         <>
             {isSeriesLoading || isInitialLoading
                 ? <Spinner/>
-                : <CandlestickChart data={seriesData} initialData={initialData}/>}
+                : <CandlestickChart
+                    data={seriesData}
+                    initialData={initialData}
+                    isSeriesLoading={isSeriesLoading}
+                    isInitialLoading={isInitialLoading}/>}
         </>
     )
 }

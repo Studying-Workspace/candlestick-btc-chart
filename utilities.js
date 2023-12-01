@@ -20,7 +20,7 @@ export const accumulateFromBatch = (dataBatch, startIndex, DATA_PER_UPDATE = 50)
     let result = new Array(5).fill(0); // [timestamp, low, high, open, close]
     // chart: open - high - low - close
 
-    result[3] = dataBatch?.[0][3];
+    result[3] = dataBatch?.[startIndex][3];
     result[1] = Number.MAX_SAFE_INTEGER;
 
     for (let i = startIndex; i < Math.min(300, startIndex + DATA_PER_UPDATE); i++) {

@@ -2,13 +2,13 @@ import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
 import {updateCandlestick, accumulateFromBatch} from "../../../utilities.js";
 
-export const CandlestickChart = ({data, initialData}) => {
+export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialLoading}) => {
 
     let processData = (rawData) => {
         const processedData = [];
-        const DATA_PER_MINUTE = 20;
+        const DATA_PER_MINUTE = 5;
         for(let i = 0; i < rawData.length; i += DATA_PER_MINUTE) {
-            processedData.push(accumulateFromBatch(rawData, i, 20));
+            processedData.push(accumulateFromBatch(rawData, i, DATA_PER_MINUTE));
         }
         return processedData;
     }
@@ -30,8 +30,12 @@ export const CandlestickChart = ({data, initialData}) => {
     // chart: open - high - low - close
     // api: timestamp - low - high - open - close - _volume
     useEffect(() => {
+        if(isSeriesLoading) {
+            return;
+        }
         let newSeries = [...series];
-        newSeries[0].data.push({x: new Date(), y: []});
+        const initialCandlestickData = accumulateFromBatch(data, 0, 50);
+        newSeries[0].data.push({x: new Date(initialCandlestickData[0]), y: [...initialCandlestickData.slice(1)]});
         if (newSeries[0]?.data.length > 60) {
             newSeries[0].data.unshift();
         }
