@@ -6,7 +6,8 @@ export const CandlestickChart = ({data, initialData}) => {
 
     let processData = (rawData) => {
         const processedData = [];
-        for(let i = 0; i < rawData.length; i += 20) {
+        const DATA_PER_MINUTE = 20;
+        for(let i = 0; i < rawData.length; i += DATA_PER_MINUTE) {
             processedData.push(accumulateFromBatch(rawData, i, 20));
         }
         return processedData;
