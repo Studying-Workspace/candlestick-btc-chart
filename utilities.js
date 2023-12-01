@@ -8,7 +8,7 @@ export const updateCandlestick = (series, setSeries, dataBatch) => {
         accumulated = accumulateFromBatch(dataBatch, DATA_PER_UPDATE * updates);
         makeUpdate(accumulated, series, setSeries);
         updates++;
-        if (updates < 5) {
+        if (updates < 6) {
             setTimeout(updateRoutine, 1000 * 10);
         }
     }
