@@ -25,10 +25,6 @@ function App() {
         }
     });
 
-    if(!isInitialLoading) {
-        console.log(initialData.length);
-    }
-
     return (
         <>
             {isSeriesLoading || isInitialLoading

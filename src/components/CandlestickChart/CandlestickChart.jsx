@@ -1,19 +1,28 @@
 import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
-import {updateCandlestick} from "../../../utilities.js";
+import {updateCandlestick, accumulateFromBatch} from "../../../utilities.js";
 
 export const CandlestickChart = ({data, initialData}) => {
 
-
+    let processData = (rawData) => {
+        const processedData = [];
+        for(let i = 0; i < rawData.length; i += 20) {
+            processedData.push(accumulateFromBatch(rawData, i, 20));
+        }
+        return processedData;
+    }
 
     const [series, setSeries] = useState([
         {
             name: "series-1",
-            data: [
-                // array of objects with x and y properties
-                // {x: new Date(1991, 0, 1), y: [30, 40, 45, 50]},
-
-            ]
+            // array of objects with x and y properties
+            // {x: new Date(1991, 0, 1), y: [30, 40, 45, 50]},
+            data: processData(initialData).map((item) => {
+                return {
+                    x: new Date(item[0]),
+                    y: [...item.slice(1)]
+                }
+            })
         }
     ]);
 

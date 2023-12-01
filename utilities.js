@@ -15,7 +15,8 @@ export const updateCandlestick = (series, setSeries, dataBatch) => {
 
     setTimeout(updateRoutine, 1000 * 10);
 }
-const accumulateFromBatch = (dataBatch, startIndex, DATA_PER_UPDATE = 50) => {
+
+export const accumulateFromBatch = (dataBatch, startIndex, DATA_PER_UPDATE = 50) => {
     let result = new Array(5).fill(0); // [timestamp, low, high, open, close]
     // chart: open - high - low - close
 
