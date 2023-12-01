@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
 import {updateCandlestick} from "../../../utilities.js";
+
 export const CandlestickChart = ({data}) => {
 
     const [series, setSeries] = useState([
@@ -19,21 +20,12 @@ export const CandlestickChart = ({data}) => {
     useEffect(() => {
         let newSeries = [...series];
         newSeries[0].data.push({x: new Date(), y: []});
-        if(newSeries[0]?.data.length > 60) {
+        if (newSeries[0]?.data.length > 60) {
             newSeries[0].data.unshift();
         }
         setSeries(newSeries);
         updateCandlestick([...series], setSeries, [...data]);
     }, [data]);
-
-    const [options, setOptions] = useState({
-        chart: {
-            id: "basic-bar"
-        },
-        xaxis: {
-            categories: [] // empty array
-        }
-    });
 
 
     return (
@@ -41,7 +33,14 @@ export const CandlestickChart = ({data}) => {
             <div className="row">
                 <div className="mixed-chart">
                     <ReactApexChart
-                        options={options}
+                        options={{
+                            chart: {
+                                id: "basic-bar"
+                            },
+                            xaxis: {
+                                categories: [] // empty array
+                            }
+                        }}
                         series={series}
                         type="candlestick" // change type to candlestick
                         width="500"
