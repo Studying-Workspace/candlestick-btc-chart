@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
 import {updateCandlestick} from "../../../utilities.js";
 
-export const CandlestickChart = ({data}) => {
+export const CandlestickChart = ({data, initialData}) => {
+
+
 
     const [series, setSeries] = useState([
         {

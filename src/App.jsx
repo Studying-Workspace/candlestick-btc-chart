@@ -6,7 +6,7 @@ import Spinner from "./components/Spinner/Spinner.jsx";
 
 function App() {
 
-    const {isLoading, data} = useQuery({
+    const {isLoading: isSeriesLoading, data: seriesData} = useQuery({
         queryKey: ['btc-price-1m'],
         queryFn: async () => {
             const res = await fetch('https://api.pro.coinbase.com/products/BTC-USD/candles/1m');
@@ -17,11 +17,23 @@ function App() {
         refetchOnWindowFocus: true,
     });
 
+    const {isLoading: isInitialLoading, data: initialData} = useQuery({
+        queryKey: ['btc-initial-price'],
+        queryFn: async () => {
+            const res = await fetch('https://api.pro.coinbase.com/products/BTC-USD/candles/15m');
+            return await res.json();
+        }
+    });
+
+    if(!isInitialLoading) {
+        console.log(initialData.length);
+    }
+
     return (
         <>
-            {isLoading
+            {isSeriesLoading || isInitialLoading
                 ? <Spinner/>
-                : <CandlestickChart data={data}/>}
+                : <CandlestickChart data={seriesData} initialData={initialData}/>}
         </>
     )
 }

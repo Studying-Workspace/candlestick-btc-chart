@@ -1,8 +1,8 @@
-const DATA_PER_UPDATE = 50;
 
 export const updateCandlestick = (series, setSeries, dataBatch) => {
     let updates = 1;
     let accumulated = accumulateFromBatch(dataBatch, 0);
+    const DATA_PER_UPDATE = 50;
 
     const updateRoutine = () => {
         accumulated = accumulateFromBatch(dataBatch, DATA_PER_UPDATE * updates);
@@ -15,7 +15,7 @@ export const updateCandlestick = (series, setSeries, dataBatch) => {
 
     setTimeout(updateRoutine, 1000 * 10);
 }
-const accumulateFromBatch = (dataBatch, startIndex) => {
+const accumulateFromBatch = (dataBatch, startIndex, DATA_PER_UPDATE = 50) => {
     let result = new Array(5).fill(0); // [timestamp, low, high, open, close]
     // chart: open - high - low - close
 
@@ -23,7 +23,6 @@ const accumulateFromBatch = (dataBatch, startIndex) => {
     result[1] = Number.MAX_SAFE_INTEGER;
 
     for (let i = startIndex; i < Math.min(300, startIndex + DATA_PER_UPDATE); i++) {
-        console.log("inside the loop", i);
         result[0] = dataBatch[i][0];
         result[1] = Math.min(result[1], dataBatch[i][1]);
         result[2] = Math.max(result[2], dataBatch[i][2]);
