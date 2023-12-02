@@ -1,8 +1,7 @@
 import "./App.css";
-import { CandlestickChart } from "./components/CandlestickChart/CandlestickChart.jsx";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "./components/Spinner/Spinner.jsx";
-import { CountDown } from "./components/CountDown/CountDown.jsx";
+import ChartsBox from "./components/ChartsBox/ChartsBox.jsx";
 
 function App() {
   const { isLoading: isSeriesLoading, data: seriesData } = useQuery({
@@ -33,15 +32,12 @@ function App() {
       {isSeriesLoading || isInitialLoading ? (
         <Spinner />
       ) : (
-        <div>
-          <CountDown seconds={60} />
-          <CandlestickChart
-            data={seriesData}
-            initialData={initialData}
-            isSeriesLoading={isSeriesLoading}
-            isInitialLoading={isInitialLoading}
-          />
-        </div>
+        <ChartsBox
+          seriesData={seriesData}
+          initialData={initialData}
+          isSeriesLoading={isSeriesLoading}
+          isInitialLoading={isInitialLoading}
+        />
       )}
     </>
   );
