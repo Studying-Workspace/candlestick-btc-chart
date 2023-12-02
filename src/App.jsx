@@ -2,8 +2,12 @@ import "./App.css";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "./components/Spinner/Spinner.jsx";
 import ChartsBox from "./components/ChartsBox/ChartsBox.jsx";
+import { useState } from "react";
 
 function App() {
+
+  const [coin , setCoin] = useState("BTC") ; 
+
   const { isLoading: isSeriesLoading, data: seriesData } = useQuery({
     queryKey: ["btc-price-1m"],
     queryFn: async () => {
@@ -37,6 +41,8 @@ function App() {
           initialData={initialData}
           isSeriesLoading={isSeriesLoading}
           isInitialLoading={isInitialLoading}
+          coin={coin}
+          setCoin={setCoin}
         />
       )}
     </>
