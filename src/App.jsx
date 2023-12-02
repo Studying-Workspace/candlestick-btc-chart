@@ -19,7 +19,7 @@ function App() {
     const {isLoading: isInitialLoading, data: initialData} = useQuery({
         queryKey: ['btc-initial-price'],
         queryFn: async () => {
-            const res = await fetch('https://api.pro.coinbase.com/products/BTC-USD/candles/1h');
+            const res = await fetch('https://api.pro.coinbase.com/products/BTC-USD/candles/1m');
             return await res.json();
         }
     });

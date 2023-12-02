@@ -4,6 +4,8 @@ function Spinner() {
    
       <PropagateLoader color="#36d7b7" />
     
+    
+    
   );
 }
 

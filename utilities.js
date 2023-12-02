@@ -1,4 +1,3 @@
-
 export const updateCandlestick = (series, setSeries, dataBatch) => {
     let updates = 1;
     let accumulated = accumulateFromBatch(dataBatch, 0);
@@ -32,7 +31,7 @@ export const accumulateFromBatch = (dataBatch, startIndex, DATA_PER_UPDATE = 50)
 
     // changing from [timestamp, low, high, open, close]
     // to [timestamp, open, high, low, close]
-    result = [result[0], result[3], result[2], result[1], result[4]];
+    result = [result[0] * 1000, result[3], result[2], result[1], result[4]];
 
     return result;
 }
