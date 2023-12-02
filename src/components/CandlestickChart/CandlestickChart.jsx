@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
-import {accumulateFromBatch, processDateRepresentation} from "../../../utilities.js";
+import {accumulateFromBatch, processDateRepresentation} from "../../utilities.js";
 import styles from "./CandlestickChart.module.css";
 
 export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialLoading}) => {
