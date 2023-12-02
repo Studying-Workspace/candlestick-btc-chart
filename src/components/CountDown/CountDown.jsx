@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import styles from "./CountDown.module.css";
 export const CountDown = ({ seconds }) => {
   const [countDown, setCountDown] = useState(seconds);
   const timerId = useRef();
@@ -10,7 +11,7 @@ export const CountDown = ({ seconds }) => {
     return () => clearInterval(timerId.current);
   }, []);
   return (
-    <div>
+    <div className={styles.container}>
       <span>Until next update: </span>
       <span>{countDown === 60 ? "1m 00s" : `0m ${countDown}s`}</span>
     </div>
