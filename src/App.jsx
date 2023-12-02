@@ -7,6 +7,7 @@ import {fetchCandlestickData} from "./services.js";
 
 function App() {
     const [coin, setCoin] = useState('BTC');
+    const [isDark , setIsDark] = useState(true) ; 
 
     const {isLoading: isSeriesLoading, data: seriesData} = useQuery({
         queryKey: ["price-1m", coin],
@@ -37,6 +38,8 @@ function App() {
                     isInitialLoading={isInitialLoading}
                     coin={coin}
                     setCoin={setCoin}
+                    isDark={isDark}
+                    setIsDark={setIsDark}
                 />
             )}
         </>
