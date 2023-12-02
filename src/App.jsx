@@ -1,46 +1,46 @@
 import "./App.css";
-import { useQuery } from "@tanstack/react-query";
+import {useQuery} from "@tanstack/react-query";
 import Spinner from "./components/Spinner/Spinner.jsx";
 import ChartsBox from "./components/ChartsBox/ChartsBox.jsx";
+import {useState} from "react";
+import {fetchCandlestickData} from "./services.js";
 
 function App() {
-  const { isLoading: isSeriesLoading, data: seriesData } = useQuery({
-    queryKey: ["btc-price-1m"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://api.pro.coinbase.com/products/BTC-USD/candles/1m"
-      );
-      return await res.json();
-    },
-    refetchInterval: 60 * 1000,
-    refetchIntervalInBackground: true,
-    refetchOnWindowFocus: true,
-  });
+    const [coin, setCoin] = useState('BTC');
 
-  const { isLoading: isInitialLoading, data: initialData } = useQuery({
-    queryKey: ["btc-initial-price"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://api.pro.coinbase.com/products/BTC-USD/candles/1m"
-      );
-      return await res.json();
-    },
-  });
+    const {isLoading: isSeriesLoading, data: seriesData} = useQuery({
+        queryKey: ["price-1m", coin],
+        queryFn: async () => {
+            return await fetchCandlestickData(coin, '1m');
+        },
+        refetchInterval: 60 * 1000,
+        refetchIntervalInBackground: true,
+        refetchOnWindowFocus: true,
+    });
 
-  return (
-    <>
-      {isSeriesLoading || isInitialLoading ? (
-        <Spinner />
-      ) : (
-        <ChartsBox
-          seriesData={seriesData}
-          initialData={initialData}
-          isSeriesLoading={isSeriesLoading}
-          isInitialLoading={isInitialLoading}
-        />
-      )}
-    </>
-  );
+    const {isLoading: isInitialLoading, data: initialData} = useQuery({
+        queryKey: ["initial-price", coin],
+        queryFn: async () => {
+            return await fetchCandlestickData(coin, '1m');
+        },
+    });
+
+    return (
+        <>
+            {isSeriesLoading || isInitialLoading ? (
+                <Spinner/>
+            ) : (
+                <ChartsBox
+                    seriesData={seriesData}
+                    initialData={initialData}
+                    isSeriesLoading={isSeriesLoading}
+                    isInitialLoading={isInitialLoading}
+                    coin={coin}
+                    setCoin={setCoin}
+                />
+            )}
+        </>
+    );
 }
 
 export default App;
