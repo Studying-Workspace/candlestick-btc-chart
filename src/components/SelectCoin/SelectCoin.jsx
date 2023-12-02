@@ -14,16 +14,6 @@ const SelectCoin = ({coin, setCoin}) => {
 
     return (
         <FormControl sx={{m: 1, minWidth: 120}}>
-            <InputLabel
-                id="demo-simple-select-helper-label"
-                sx={{
-                    color: "#000",
-                    border: "2px solid #000",
-                    backgroundColor: "#fff",
-                    padding: "0 10px",
-                    borderBottom: "none",
-                }}
-            >Coin</InputLabel>
             <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
