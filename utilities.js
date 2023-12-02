@@ -41,8 +41,26 @@ const makeUpdate = (accumulated, series, setSeries) => {
     let newSeries = [...series];
     const len = newSeries[0].data.length;
     newSeries[0].data[len - 1] = {
-        x: new Date(accumulated[0]),
+        x: processDateRepresentation(accumulated[0]),
         y: accumulated.slice(1)
     };
     setSeries(newSeries);
+}
+
+export const processDateRepresentation = (date) => {
+    let options = {
+        // Specify the locale as English
+        locale: "en",
+        // Specify the time zone as EEST
+        timeZone: "Europe/Bucharest",
+        // Specify the format of the date components
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric"
+    };
+
+    return new Date(date).toLocaleDateString(undefined, options);
 }
