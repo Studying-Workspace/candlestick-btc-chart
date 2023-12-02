@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
 import {accumulateFromBatch} from "../../../utilities.js";
-import styles from './CandlestickChart.module.css';
+import styles from "./CandlestickChart.module.css";
 
 export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialLoading}) => {
 
@@ -45,18 +45,17 @@ export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialL
         }]);
     }, [data]);
 
-
     return (
         <div className={styles.chartBox}>
             <div className="row">
                 <ReactApexChart
                     options={{
                         chart: {
-                            id: "basic-bar"
+                            id: "basic-bar",
                         },
                         xaxis: {
-                            categories: [] // empty array
-                        }
+                            categories: [], // empty array
+                        },
                     }}
                     series={series}
                     type="candlestick" // change type to candlestick
@@ -65,5 +64,4 @@ export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialL
             </div>
         </div>
     );
-}
-
+};
