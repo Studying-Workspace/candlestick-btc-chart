@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
-import {accumulateFromBatch} from "../../../utilities.js";
+import {accumulateFromBatch, processDateRepresentation} from "../../../utilities.js";
 import styles from "./CandlestickChart.module.css";
 
 export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialLoading}) => {
@@ -18,7 +18,7 @@ export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialL
     const getStateFormat = (givenData) => {
         return processData(givenData).map((item) => {
             return {
-                x: new Date(item[0]),
+                x: processDateRepresentation(item[0]),
                 y: [...item.slice(1)]
             }
         })
