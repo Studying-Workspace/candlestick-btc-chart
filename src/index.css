@@ -8,17 +8,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    --bg-color : #1a1a1a ; 
-    --bg-btn-color: #ffff ; 
-    --text-btn-color: #1a1a1a ;
-    --text-color : #ffff ;
+    --bg-color: #1a1a1a;
+    --bg-btn-color: #ffff;
+    --text-btn-color: #1a1a1a;
+    --text-color: #ffff;
 }
 
-[data-theme="dark"]{
+[data-theme="dark"] {
     --bg-color: #ffff;
-    --bg-btn-color: #1a1a1a ; 
-    --text-btn-color: #ffff ; 
-    --text-color: #1a1a1a ;
+    --bg-btn-color: #1a1a1a;
+    --text-btn-color: #ffff;
+    --text-color: #1a1a1a;
 }
 
 a {

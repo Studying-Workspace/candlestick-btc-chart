@@ -1,12 +1,12 @@
 .btnFakeDarkMode {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 8px;
-  line-height: 1;
-  font-size: 16px;
-  background-color: #fff;
-  border: none;
-  filter: invert(0%) !important;
-  background: var(--bg-btn-color);
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    line-height: 1;
+    font-size: 16px;
+    background-color: #fff;
+    border: none;
+    filter: invert(0%) !important;
+    background: var(--bg-btn-color);
 }

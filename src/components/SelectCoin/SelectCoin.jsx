@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {coins} from '../../supported-coins';
 
-const SelectCoin = ({coin, setCoin , isDark}) => {
+const SelectCoin = ({coin, setCoin, isDark}) => {
 
     const handleChange = (e) => {
         setCoin(e.target.value);

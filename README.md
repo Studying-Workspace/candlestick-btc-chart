@@ -18,7 +18,9 @@ This project was built using the following technologies:
 - **Apex Charts:** A modern charting library that helps to create interactive charts and visualizations.
 - **CSS Modules:** A CSS file in which all class names and animation names are scoped locally by default.
 - **Vite:** A fast and lightweight web development tool that supports React, Vue, and other frameworks.
-- **Material UI:** A popular React UI framework that provides a set of components and styles for building responsive and accessible web pages.
+- **Material UI:** A popular React UI framework that provides a set of components and styles for building responsive and
+  accessible web pages.
+
 ## Installation
 
 To run this project locally, you need to have Node.js and npm installed on your machine. Then, follow these steps:
