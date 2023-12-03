@@ -11,13 +11,13 @@ export const ChartOptions = ({
     return (
         <>
             <SelectMenu defaultValue={coin}
-                        setCoin={setCoin}
+                        setValue={setCoin}
                         isDark={isDark}
                         helperText='Choose a coin to show its price changes'
                         menuItems={coins}
             />
             <SelectMenu defaultValue={timeUnit}
-                        setCoin={setTimeUnit}
+                        setValue={setTimeUnit}
                         isDark={isDark}
                         helperText='Choose a time unit'
                         menuItems={timeUnits}

@@ -4,10 +4,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const SelectMenu = ({defaultValue, setCoin, isDark, helperText, menuItems}) => {
+const SelectMenu = ({defaultValue, setValue, isDark, helperText, menuItems}) => {
 
     const handleChange = (e) => {
-        setCoin(e.target.value);
+        setValue(e.target.value);
     }
 
     return (

@@ -12,13 +12,21 @@ const ChartsBox = ({
                        coin,
                        setCoin,
                        isDark,
-                       setIsDark
+                       setIsDark,
+                       timeUnit,
+                       setTimeUnit,
                    }) => {
     return (
         <div className={styles.chartBox}>
             <DarkLightModeButton isDark={isDark} setIsDark={setIsDark}/>
             <CountDown seconds={60} coin={coin}/>
-            <ChartOptions coin={coin} setCoin={setCoin} isDark={isDark}/>
+            <ChartOptions
+                coin={coin}
+                setCoin={setCoin}
+                isDark={isDark}
+                timeUnit={timeUnit}
+                setTimeUnit={setTimeUnit}
+            />
             <CandlestickChart
                 data={seriesData}
                 initialData={initialData}
