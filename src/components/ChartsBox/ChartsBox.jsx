@@ -1,7 +1,6 @@
 import {CountDown} from "../CountDown/CountDown";
 import {CandlestickChart} from "../CandlestickChart/CandlestickChart";
 import styles from "./ChartsBox.module.css";
-import SelectCoin from "../SelectCoin/SelectCoin";
 import DarkLightModeButton from "../DarkLightModeButton/DarkLightModeButton";
 import {ChartOptions} from "../ChartOptions/ChartOptions.jsx";
 
