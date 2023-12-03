@@ -19,7 +19,7 @@ const ChartsBox = ({
     return (
         <div className={styles.chartBox}>
             <DarkLightModeButton isDark={isDark} setIsDark={setIsDark}/>
-            <CountDown seconds={60} coin={coin}/>
+            <CountDown seconds={60} coin={coin} timeUnit={timeUnit}/>
             <ChartOptions
                 coin={coin}
                 setCoin={setCoin}
