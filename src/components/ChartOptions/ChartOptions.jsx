@@ -1,5 +1,6 @@
 import SelectMenu from "../SelectMenu/SelectMenu.jsx";
 import {coins, timeUnits} from '../../supported-chart-options.js';
+import styles from './ChartOptions.module.css';
 
 export const ChartOptions = ({
                                  coin,
@@ -9,7 +10,7 @@ export const ChartOptions = ({
                                  setTimeUnit,
                              }) => {
     return (
-        <>
+        <div className={styles.optionsContainer}>
             <SelectMenu defaultValue={coin}
                         setValue={setCoin}
                         isDark={isDark}
@@ -22,6 +23,6 @@ export const ChartOptions = ({
                         helperText='Choose a time unit'
                         menuItems={timeUnits}
             />
-        </>
+        </div>
     )
 }
