@@ -1,5 +1,5 @@
 .container {
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid var(--bg-btn-color);
     padding: 0.5rem;
     width: 80%;
     box-shadow: 0 0 1rem rgb(152, 152, 152);
@@ -7,4 +7,6 @@
     letter-spacing: 1.5px;
     font-size: 1.2rem;
     border-radius: 5px;
+    color : var(--text-btn-color) ; 
+    background-color: var(--bg-btn-color);
 }

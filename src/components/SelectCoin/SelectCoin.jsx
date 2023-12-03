@@ -1,12 +1,11 @@
 import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import {coins} from '../../supported-coins';
 
-const SelectCoin = ({coin, setCoin}) => {
+const SelectCoin = ({coin, setCoin , isDark}) => {
 
     const handleChange = (e) => {
         setCoin(e.target.value);
@@ -21,9 +20,9 @@ const SelectCoin = ({coin, setCoin}) => {
                 label="Age"
                 onChange={handleChange}
                 sx={{
-                    color: "#000",
-                    backgroundColor: "#fff",
-                    ":focus": {borderColor: "#fff"}
+                    color: `${!isDark ? "#1a1a1a" : "#ffff"}`,
+                    backgroundColor: `${isDark ? "#1a1a1a" : "#ffff"}`,
+                    ":focus": {borderColor: `${!isDark ? "#1a1a1a" : "#ffff"}`}
                 }}
             >
 
@@ -36,7 +35,7 @@ const SelectCoin = ({coin, setCoin}) => {
             </Select>
             <FormHelperText
                 sx={{
-                    color: "#fff"
+                    color: `${isDark ? "#1a1a1a" : "#ffff"}`
                 }}>Choose a coin to show its price changes</FormHelperText>
         </FormControl>
     );
