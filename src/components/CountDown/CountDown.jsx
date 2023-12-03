@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import styles from "./CountDown.module.css";
 
-export const CountDown = ({seconds, coin}) => {
+export const CountDown = ({seconds, coin, timeUnit}) => {
     const [countDown, setCountDown] = useState(seconds);
     const timerId = useRef();
 
@@ -14,7 +14,7 @@ export const CountDown = ({seconds, coin}) => {
             setCountDown((prev) => (prev === 1 ? seconds : prev - 1));
         }, 1000);
         return () => clearInterval(timerId.current);
-    }, [coin]);
+    }, [coin, timeUnit]);
 
     return (
         <div className={styles.container}>

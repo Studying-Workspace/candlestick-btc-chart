@@ -3,12 +3,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import {coins} from '../../supported-coins';
 
-const SelectCoin = ({coin, setCoin, isDark}) => {
+const SelectMenu = ({defaultValue, setValue, isDark, helperText, menuItems}) => {
 
     const handleChange = (e) => {
-        setCoin(e.target.value);
+        setValue(e.target.value);
     }
 
     return (
@@ -16,7 +15,7 @@ const SelectCoin = ({coin, setCoin, isDark}) => {
             <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
-                value={coin}
+                value={defaultValue}
                 label="Age"
                 onChange={handleChange}
                 sx={{
@@ -27,8 +26,8 @@ const SelectCoin = ({coin, setCoin, isDark}) => {
             >
 
                 {
-                    coins.map((coin, idx) => {
-                        return <MenuItem key={idx} value={coin}>{coin}</MenuItem>
+                    menuItems.map((itemValue, idx) => {
+                        return <MenuItem key={idx} value={itemValue}>{itemValue}</MenuItem>
                     })
                 }
 
@@ -36,9 +35,9 @@ const SelectCoin = ({coin, setCoin, isDark}) => {
             <FormHelperText
                 sx={{
                     color: `${isDark ? "#1a1a1a" : "#ffff"}`
-                }}>Choose a coin to show its price changes</FormHelperText>
+                }}>{helperText}</FormHelperText>
         </FormControl>
     );
 }
 
-export default SelectCoin;
+export default SelectMenu;
