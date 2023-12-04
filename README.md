@@ -1,12 +1,11 @@
-# BTC Price Chart
+# Cryptocurrency Price Chart
 
-This project is a web application that displays a BTC price chart fetching the data from Coinbase API and representing
-the price of the last hour, with updating the chart every minute.
+This project is a web application that uses the Coinbase API to display a cryptocurrency price chart. The chart shows the price changes of a selected cryptocurrency in a chosen time unit, such as minutes, hours, or days. The chart updates every minute to reflect the latest data.
 
 ## Demo
 
 You can see a live demo of the project
-here: [BTC Price Chart](https://studying-workspace.github.io/candlestick-btc-chart/)
+here: [Cryptocurrency Price Chart](https://studying-workspace.github.io/candlestick-btc-chart/)
 
 ## Technologies
 
@@ -33,5 +32,5 @@ To run this project locally, you need to have Node.js and npm installed on your 
 
 ## Usage
 
-The web application shows a BTC price chart that updates every minute. You can hover over the chart to see the exact
+The web application shows a cryptocurrency price chart that updates every minute. You can hover over the chart to see the exact
 price and time. You can also zoom in and out the chart by using the mouse wheel or the buttons on the top right corner.
