@@ -20,6 +20,16 @@ This project was built using the following technologies:
 - **Material UI:** A popular React UI framework that provides a set of components and styles for building responsive and
   accessible web pages.
 
+## Screenshots
+
+### Light Mode
+
+![Screenshot-1](./src/assets/demo-screenshot-light.png)
+
+### Dark Mode
+
+![Screenshot-2](./src/assets/demo-screenshot-dark.png)
+
 ## Installation
 
 To run this project locally, you need to have Node.js and npm installed on your machine. Then, follow these steps:
