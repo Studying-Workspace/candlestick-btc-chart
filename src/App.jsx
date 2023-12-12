@@ -1,4 +1,3 @@
-import "./App.css";
 import {useQuery} from "@tanstack/react-query";
 import Spinner from "./components/Spinner/Spinner.jsx";
 import ChartsBox from "./components/ChartsBox/ChartsBox.jsx";
@@ -7,7 +6,7 @@ import {fetchCandlestickData} from "./services.js";
 
 function App() {
     const [coin, setCoin] = useState('BTC');
-    const [isDark, setIsDark] = useState(true);
+    const [isDark, setIsDark] = useState(localStorage.getItem("theme") === "light");
     const [timeUnit, setTimeUnit] = useState('1m');
 
     const {isLoading: isSeriesLoading, data: seriesData} = useQuery({
