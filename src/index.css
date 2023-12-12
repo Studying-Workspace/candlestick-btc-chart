@@ -36,10 +36,10 @@ body {
     min-width: 320px;
     min-height: 100vh;
     background-color: var(--bg-color);
-    transition: all 0.5s ease-in-out ;
+    transition: all 0.5s ease-in-out;
 }
 
-button{
+button {
     cursor: pointer;
 }
 

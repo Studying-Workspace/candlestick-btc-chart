@@ -1,6 +1,8 @@
 # Cryptocurrency Price Chart
 
-This project is a web application that uses the Coinbase API to display a cryptocurrency price chart. The chart shows the price changes of a selected cryptocurrency in a chosen time unit, such as minutes, hours, or days. The chart updates every minute to reflect the latest data.
+This project is a web application that uses the Coinbase API to display a cryptocurrency price chart. The chart shows
+the price changes of a selected cryptocurrency in a chosen time unit, such as minutes, hours, or days. The chart updates
+every minute to reflect the latest data.
 
 ## Demo
 
@@ -42,5 +44,6 @@ To run this project locally, you need to have Node.js and npm installed on your 
 
 ## Usage
 
-The web application shows a cryptocurrency price chart that updates every minute. You can hover over the chart to see the exact
+The web application shows a cryptocurrency price chart that updates every minute. You can hover over the chart to see
+the exact
 price and time. You can also zoom in and out the chart by using the mouse wheel or the buttons on the top right corner.

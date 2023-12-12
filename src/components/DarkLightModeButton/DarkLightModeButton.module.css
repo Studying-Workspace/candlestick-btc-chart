@@ -1,4 +1,4 @@
-.container{
+.container {
     position: fixed;
     top: 10px;
     right: 10px;
@@ -17,9 +17,9 @@
     border: none;
     filter: invert(0%) !important;
     background: none;
-    color : var(--bg-btn-color) ; 
+    color: var(--bg-btn-color);
 }
 
-.btnFakeDarkMode:focus{
+.btnFakeDarkMode:focus {
     outline: none;
 }
