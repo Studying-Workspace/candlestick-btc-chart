@@ -1,0 +1,13 @@
+.chartBox {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.optionsBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
