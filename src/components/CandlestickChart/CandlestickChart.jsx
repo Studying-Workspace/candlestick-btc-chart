@@ -2,8 +2,13 @@ import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
 import {accumulateFromBatch, processDateRepresentation} from "../../utilities.js";
 import styles from "./CandlestickChart.module.css";
+import { useInitialData } from "../../hooks/useinitialData.js";
+import { useSeriesData } from "../../hooks/useSeriesData.js";
 
-export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialLoading}) => {
+export const CandlestickChart = ({coin , timeUnit}) => {
+
+    const {initialData} = useInitialData(coin , timeUnit) ; 
+    const {isSeriesDataLoading , seriesData} = useSeriesData(coin , timeUnit) ; 
 
     let processData = (rawData) => {
         const processedData = [];
@@ -36,14 +41,14 @@ export const CandlestickChart = ({data, initialData, isSeriesLoading, isInitialL
     // chart: open - high - low - close
     // api: timestamp - low - high - open - close - _volume
     useEffect(() => {
-        if (isSeriesLoading) {
+        if (isSeriesDataLoading) {
             return;
         }
         setSeries([{
             name: "series-1",
-            data: getStateFormat(data)
+            data: getStateFormat(seriesData)
         }]);
-    }, [data]);
+    }, [seriesData]);
 
     return (
         <div className={styles.chartBox}>

@@ -5,10 +5,6 @@ import DarkLightModeButton from "../DarkLightModeButton/DarkLightModeButton";
 import {ChartOptions} from "../ChartOptions/ChartOptions.jsx";
 
 const ChartsBox = ({
-                       seriesData,
-                       initialData,
-                       isSeriesLoading,
-                       isInitialLoading,
                        coin,
                        setCoin,
                        isDark,
@@ -27,12 +23,7 @@ const ChartsBox = ({
                 timeUnit={timeUnit}
                 setTimeUnit={setTimeUnit}
             />
-            <CandlestickChart
-                data={seriesData}
-                initialData={initialData}
-                isSeriesLoading={isSeriesLoading}
-                isInitialLoading={isInitialLoading}
-            />
+            <CandlestickChart coin={coin} timeUnit={timeUnit}/>
         </div>
     );
 }
