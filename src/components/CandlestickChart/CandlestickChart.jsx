@@ -3,11 +3,12 @@ import ReactApexChart from "react-apexcharts";
 import {accumulateFromBatch, processDateRepresentation} from "../../utilities.js";
 import styles from "./CandlestickChart.module.css";
 import { useChart } from "../../context/ChartContext.jsx";
+import { useCallback } from "react";
 
 export const CandlestickChart = () => {
     const {initialData , Loading, seriesData} = useChart() ; 
 
-    let processData = (rawData) => {
+    let processData = useCallback ((rawData) => {
         const processedData = [];
         const DATA_PER_MINUTE = 1;
         for (let i = 0; i < rawData.length; i += DATA_PER_MINUTE) {
@@ -15,16 +16,16 @@ export const CandlestickChart = () => {
         }
         const len = processedData.length;
         return processedData.reverse().slice(len - 60);
-    }
+    } , []) ; 
 
-    const getStateFormat = (givenData) => {
+    const getStateFormat = useCallback((givenData) => {
         return processData(givenData).map((item) => {
             return {
                 x: processDateRepresentation(item[0]),
                 y: [...item.slice(1)]
             }
         })
-    }
+    } , [processData]) ; 
 
     const [series, setSeries] = useState([
         {
@@ -45,7 +46,7 @@ export const CandlestickChart = () => {
             name: "series-1",
             data: getStateFormat(seriesData)
         }]);
-    }, [seriesData]);
+    }, [Loading, getStateFormat, seriesData]);
 
     return (
         <div className={styles.chartBox}>
