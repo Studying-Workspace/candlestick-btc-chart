@@ -26,11 +26,11 @@ This project was built using the following technologies:
 
 ### Light Mode
 
-![Screenshot-1](./src/assets/demo-screenshot-light.png)
+<img src="src/assets/demo-screenshot-light.png" alt="light-theme-screenshot" height="350">
 
 ### Dark Mode
 
-![Screenshot-2](./src/assets/demo-screenshot-dark.png)
+<img src="src/assets/demo-screenshot-dark.png" alt="dark-theme-screenshot" height="350">
 
 ## Installation
 
