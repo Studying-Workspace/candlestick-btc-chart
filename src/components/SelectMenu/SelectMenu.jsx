@@ -3,8 +3,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useChart } from '../../context/ChartContext';
 
-const SelectMenu = ({defaultValue, setValue, isDark, helperText, menuItems}) => {
+const SelectMenu = ({defaultValue, setValue , helperText, menuItems}) => {
+
+    const {isDark} = useChart() ; 
 
     const handleChange = (e) => {
         setValue(e.target.value);
