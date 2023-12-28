@@ -9,16 +9,19 @@ export const ChartOptions = () => {
     
     return (
         <div className={styles.optionsContainer}>
+
             <SelectMenu defaultValue={coin}
                         setValue={setCoin}
                         helperText='Choose a coin to show its price changes'
                         menuItems={coins}
             />
+
             <SelectMenu defaultValue={timeUnit}
                         setValue={setTimeUnit}
                         helperText='Choose a time unit'
                         menuItems={timeUnits}
             />
+            
         </div>
     )
 }
