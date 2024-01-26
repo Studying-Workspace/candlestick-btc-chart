@@ -13,9 +13,10 @@
     padding: 8px;
     line-height: 1;
     font-size: 18px;
+    background-color: #fff;
     border: none;
     filter: invert(0%) !important;
-    background: #fff none;
+    background: none;
     color: var(--bg-btn-color);
 }
 
