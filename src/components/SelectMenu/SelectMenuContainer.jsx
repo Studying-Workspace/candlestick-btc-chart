@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useChartContext} from '../../context/ChartContext';
 import SelectMenu from './';
+
 const SelectMenuContainer = ({defaultValue, setValue, helperText, menuItems}) => {
 
     const {isDark} = useChartContext();
@@ -10,12 +11,13 @@ const SelectMenuContainer = ({defaultValue, setValue, helperText, menuItems}) =>
     }
 
     return (
-        <SelectMenu defaultValue={defaultValue}
-                    setValue={defaultValue}
-                    helperText={helperText}
-                    menuItems={menuItems}
-                    isDark={isDark}
-                    handleChange={handleChange}
+        <SelectMenu
+            defaultValue={defaultValue}
+            setValue={defaultValue}
+            helperText={helperText}
+            menuItems={menuItems}
+            isDark={isDark}
+            handleChange={handleChange}
         />
     );
 }
