@@ -1,16 +1,16 @@
-import {CountDown} from "../CountDown/CountDown";
-import {CandlestickChart} from "../CandlestickChart/CandlestickChart";
+import CountDownContainer from "../CountDown";
+import CandlestickChartContainer from "../CandlestickChart";
+import DarkLightModeButtonContainer from "../DarkLightModeButton";
+import ChartOptionsContainer from "../ChartOptions";
 import styles from "./ChartsBox.module.css";
-import DarkLightModeButton from "../DarkLightModeButton/DarkLightModeButton";
-import {ChartOptions} from "../ChartOptions/ChartOptions.jsx";
 
 const ChartsBox = () => {
     return (
         <div className={styles.chartBox}>
-            <DarkLightModeButton/>
-            <CountDown seconds={60}/>
-            <ChartOptions/>
-            <CandlestickChart/>
+            <DarkLightModeButtonContainer/>
+            <CountDownContainer seconds={60}/>
+            <ChartOptionsContainer/>
+            <CandlestickChartContainer/>
         </div>
     );
 }
