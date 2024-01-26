@@ -1,4 +1,4 @@
-import {CountDown} from "../CountDown/CountDown";
+import CountDownContainer from "../CountDown";
 import {CandlestickChart} from "../CandlestickChart/CandlestickChart";
 import styles from "./ChartsBox.module.css";
 import DarkLightModeButton from "../DarkLightModeButton/DarkLightModeButton";
@@ -8,7 +8,7 @@ const ChartsBox = () => {
     return (
         <div className={styles.chartBox}>
             <DarkLightModeButton/>
-            <CountDown seconds={60}/>
+            <CountDownContainer seconds={60}/>
             <ChartOptions/>
             <CandlestickChart/>
         </div>
