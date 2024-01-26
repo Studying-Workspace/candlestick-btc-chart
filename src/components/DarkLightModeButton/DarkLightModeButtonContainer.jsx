@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from "react";
 import {useChartContext} from "../../context/ChartContext";
-import {DarkLightModeButton} from './'
+import DarkLightModeButton from './DarkLightModeButton'
 
 const DarkLightModeButtonContainer = () => {
     const {setIsDark} = useChartContext();

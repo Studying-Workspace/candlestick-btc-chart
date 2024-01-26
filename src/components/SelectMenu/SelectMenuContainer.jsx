@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useChartContext} from '../../context/ChartContext';
-import SelectMenu from './';
+import SelectMenu from './SelectMenu';
 
 const SelectMenuContainer = ({defaultValue, setValue, helperText, menuItems}) => {
 

@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import {useChartContext} from "../../context/ChartContext";
-import {CountDown} from '.'
+import CountDown from './CountDown'
 export const CountDownContainer = ({seconds}) => {
     const {coin, timeUnit} = useChartContext();
     const [countDown, setCountDown] = useState(seconds);

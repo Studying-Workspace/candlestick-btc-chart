@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {getStateFormat} from "../../utilities.js";
 import {useChartContext} from "../../context/ChartContext.jsx";
-import {CandlestickChart} from './'
+import CandlestickChart from './CandlestickChart'
 
 export const CandlestickChartContainer = () => {
     const {initialData, loading, seriesData} = useChartContext();
