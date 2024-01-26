@@ -1,18 +1,10 @@
-import * as React from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import {useChartContext} from '../../context/ChartContext';
+import React from 'react';
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
 
-const SelectMenu = ({defaultValue, setValue, helperText, menuItems}) => {
-
-    const {isDark} = useChartContext();
-
-    const handleChange = (e) => {
-        setValue(e.target.value);
-    }
-
+const SelectMenu = ({defaultValue, setValue, helperText, menuItems, isDark, handleChange}) => {
     return (
         <FormControl sx={{m: 1, minWidth: 120}}>
             <Select
@@ -40,7 +32,7 @@ const SelectMenu = ({defaultValue, setValue, helperText, menuItems}) => {
                     color: `${isDark ? "#1a1a1a" : "#ffff"}`
                 }}>{helperText}</FormHelperText>
         </FormControl>
-    );
-}
+    )
+};
 
 export default SelectMenu;
