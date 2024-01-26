@@ -1,30 +1,11 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import ReactApexChart from "react-apexcharts";
-import {accumulateFromBatch, processDateRepresentation} from "../../utilities.js";
+import {getStateFormat} from "../../utilities.js";
 import styles from "./CandlestickChart.module.css";
-import {useChart} from "../../context/ChartContext.jsx";
+import {useChartContext} from "../../context/ChartContext.jsx";
 
 export const CandlestickChart = () => {
-    const {initialData, loading, seriesData} = useChart();
-
-    let processData = useCallback((rawData) => {
-        const processedData = [];
-        const DATA_PER_MINUTE = 1;
-        for (let i = 0; i < rawData.length; i += DATA_PER_MINUTE) {
-            processedData.push(accumulateFromBatch(rawData, i, DATA_PER_MINUTE));
-        }
-        const len = processedData.length;
-        return processedData.reverse().slice(len - 60);
-    }, []);
-
-    const getStateFormat = useCallback((givenData) => {
-        return processData(givenData).map((item) => {
-            return {
-                x: processDateRepresentation(item[0]),
-                y: [...item.slice(1)]
-            }
-        })
-    }, [processData]);
+    const {initialData, loading, seriesData} = useChartContext();
 
     const [series, setSeries] = useState([
         {
@@ -35,8 +16,6 @@ export const CandlestickChart = () => {
         }
     ]);
 
-    // chart: open - high - low - close
-    // api: timestamp - low - high - open - close - _volume
     useEffect(() => {
         if (loading) {
             return;
@@ -45,7 +24,7 @@ export const CandlestickChart = () => {
             name: "series-1",
             data: getStateFormat(seriesData)
         }]);
-    }, [loading, getStateFormat, seriesData]);
+    }, [loading, seriesData]);
 
     return (
         <div className={styles.chartBox}>

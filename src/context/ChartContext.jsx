@@ -1,9 +1,9 @@
 import {createContext, useContext, useState} from "react";
 
-import {useInitialData} from "../hooks/useinitialData";
+import {useInitialData} from "../hooks/useInitialData";
 import {useSeriesData} from "../hooks/useSeriesData";
 
-const ChartContext = createContext();
+const ChartContext = createContext(undefined);
 
 function ChartContextProvider({children}) {
     const [coin, setCoin] = useState("BTC");
@@ -15,7 +15,6 @@ function ChartContextProvider({children}) {
     const {isInitialDataLoading, initialData} = useInitialData(coin, timeUnit);
     const {isSeriesDataLoading, seriesData} = useSeriesData(coin, timeUnit);
     const loading = isInitialDataLoading || isSeriesDataLoading;
-
 
     return (
         <ChartContext.Provider
@@ -36,11 +35,13 @@ function ChartContextProvider({children}) {
     );
 }
 
-function useChart() {
+function useChartContext() {
     let context = useContext(ChartContext);
-    if (context === undefined) throw new Error("Provider out!");
+    if (context === undefined) {
+        throw new Error("Provider out!");
+    }
     return context;
 }
 
-export {useChart} ;
+export {useChartContext} ;
 export default ChartContextProvider;
