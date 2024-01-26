@@ -1,7 +1,10 @@
 import {useCallback, useEffect, useState} from "react";
 import styles from './DarkLightModeButton.module.css'
+import {useChart} from "../../context/ChartContext";
 
-const DarkLightModeButton = ({setIsDark}) => {
+const DarkLightModeButton = () => {
+    const {setIsDark} = useChart();
+
     const options = [
         {
             type: "light",
