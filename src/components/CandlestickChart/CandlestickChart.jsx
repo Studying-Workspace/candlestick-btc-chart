@@ -1,31 +1,8 @@
-import React, {useEffect, useState} from "react";
-import ReactApexChart from "react-apexcharts";
-import {getStateFormat} from "../../utilities.js";
+import React from 'react';
 import styles from "./CandlestickChart.module.css";
-import {useChartContext} from "../../context/ChartContext.jsx";
+import ReactApexChart from "react-apexcharts";
 
-export const CandlestickChart = () => {
-    const {initialData, loading, seriesData} = useChartContext();
-
-    const [series, setSeries] = useState([
-        {
-            name: "series-1",
-            // array of objects with x and y properties
-            // {x: new Date(1991, 0, 1), y: [30, 40, 45, 50]},
-            data: getStateFormat(initialData)
-        }
-    ]);
-
-    useEffect(() => {
-        if (loading) {
-            return;
-        }
-        setSeries([{
-            name: "series-1",
-            data: getStateFormat(seriesData)
-        }]);
-    }, [loading, seriesData]);
-
+const CandlestickChart = ({series}) => {
     return (
         <div className={styles.chartBox}>
             <div className="row">
@@ -45,4 +22,6 @@ export const CandlestickChart = () => {
             </div>
         </div>
     );
-};
+}
+
+export default CandlestickChart;
