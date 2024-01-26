@@ -5,7 +5,7 @@ import styles from "./CandlestickChart.module.css";
 import {useChart} from "../../context/ChartContext.jsx";
 
 export const CandlestickChart = () => {
-    const {initialData, Loading, seriesData} = useChart();
+    const {initialData, loading, seriesData} = useChart();
 
     let processData = useCallback((rawData) => {
         const processedData = [];
@@ -38,14 +38,14 @@ export const CandlestickChart = () => {
     // chart: open - high - low - close
     // api: timestamp - low - high - open - close - _volume
     useEffect(() => {
-        if (Loading) {
+        if (loading) {
             return;
         }
         setSeries([{
             name: "series-1",
             data: getStateFormat(seriesData)
         }]);
-    }, [Loading, getStateFormat, seriesData]);
+    }, [loading, getStateFormat, seriesData]);
 
     return (
         <div className={styles.chartBox}>

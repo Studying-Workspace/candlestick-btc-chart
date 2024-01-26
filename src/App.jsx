@@ -4,9 +4,9 @@ import ChartsBox from "./components/ChartsBox/ChartsBox.jsx";
 import {useChart} from "./context/ChartContext.jsx";
 
 function App() {
-    const {Loading} = useChart();
+    const {loading} = useChart();
 
-    return <>{Loading ? <Spinner/> : <ChartsBox/>}</>;
+    return <>{loading ? <Spinner/> : <ChartsBox/>}</>;
 }
 
 export default App;

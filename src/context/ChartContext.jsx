@@ -14,7 +14,7 @@ function ChartContextProvider({children}) {
 
     const {isInitialDataLoading, initialData} = useInitialData(coin, timeUnit);
     const {isSeriesDataLoading, seriesData} = useSeriesData(coin, timeUnit);
-    const Loading = isInitialDataLoading || isSeriesDataLoading;
+    const loading = isInitialDataLoading || isSeriesDataLoading;
 
 
     return (
@@ -28,7 +28,7 @@ function ChartContextProvider({children}) {
                 setTimeUnit,
                 initialData,
                 seriesData,
-                Loading
+                loading
             }}
         >
             {children}
