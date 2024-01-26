@@ -7,10 +7,10 @@ import {ChartOptions} from "../ChartOptions/ChartOptions.jsx";
 const ChartsBox = () => {
     return (
         <div className={styles.chartBox}>
-            <DarkLightModeButton />
-            <CountDown seconds={60} />
+            <DarkLightModeButton/>
+            <CountDown seconds={60}/>
             <ChartOptions/>
-            <CandlestickChart />
+            <CandlestickChart/>
         </div>
     );
 }

@@ -1,9 +1,9 @@
 import {useEffect, useRef, useState} from "react";
 import styles from "./CountDown.module.css";
-import { useChart } from "../../context/ChartContext";
+import {useChart} from "../../context/ChartContext";
 
 export const CountDown = ({seconds}) => {
-    const {coin , timeUnit} = useChart() ; 
+    const {coin, timeUnit} = useChart();
     const [countDown, setCountDown] = useState(seconds);
     const timerId = useRef();
 
