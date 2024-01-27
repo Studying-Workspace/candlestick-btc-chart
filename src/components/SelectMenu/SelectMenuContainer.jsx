@@ -13,7 +13,6 @@ const SelectMenuContainer = ({defaultValue, setValue, helperText, menuItems}) =>
     return (
         <SelectMenu
             defaultValue={defaultValue}
-            setValue={defaultValue}
             helperText={helperText}
             menuItems={menuItems}
             isDark={isDark}

@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 
-const SelectMenu = ({defaultValue, setValue, helperText, menuItems, isDark, handleChange}) => {
+const SelectMenu = ({defaultValue, helperText, menuItems, isDark, handleChange}) => {
     return (
         <FormControl sx={{m: 1, minWidth: 120}}>
             <Select
@@ -20,13 +20,11 @@ const SelectMenu = ({defaultValue, setValue, helperText, menuItems, isDark, hand
                     ":focus": {borderColor: `${!isDark ? "#1a1a1a" : "#ffff"}`}
                 }}
             >
-
                 {
                     menuItems.map((itemValue, idx) => {
                         return <MenuItem key={idx} value={itemValue}>{itemValue}</MenuItem>
                     })
                 }
-
             </Select>
             <FormHelperText
                 sx={{

@@ -22,4 +22,5 @@ export const CountDownContainer = ({seconds}) => {
         <CountDown countDown={countDown} />
     );
 };
+
 export default CountDownContainer;
