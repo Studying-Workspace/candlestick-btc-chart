@@ -5,7 +5,7 @@ const CountDown = ({countDown}) => {
     return (
         <div className={styles.container}>
             <span>Until next update: </span>
-            <span>{countDown === 60 ? "1m 00s" : `0m ${countDown}s`}</span>
+            <span data-testid="countDown">{countDown === 60 ? "1m 00s" : `0m ${countDown}s`}</span>
         </div>
     )
 };

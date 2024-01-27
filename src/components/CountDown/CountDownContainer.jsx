@@ -11,6 +11,7 @@ export const CountDownContainer = ({seconds}) => {
             clearInterval(timerId.current)
             setCountDown(seconds);
         }
+        
         timerId.current = setInterval(() => {
             setCountDown((prev) => (prev === 1 ? seconds : prev - 1));
         }, 1000);

@@ -8,6 +8,7 @@ const SelectMenu = ({defaultValue, setValue, helperText, menuItems, isDark, hand
     return (
         <FormControl sx={{m: 1, minWidth: 120}}>
             <Select
+                
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
                 value={defaultValue}
