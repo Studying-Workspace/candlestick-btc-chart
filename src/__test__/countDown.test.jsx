@@ -1,6 +1,6 @@
 import { screen, waitFor } from "@testing-library/dom";
 import { render } from "@testing-library/react";
-import { beforeAll, test } from "vitest";
+import { test } from "vitest";
 import { describe } from "node:test";
 import { expect } from "chai";
 import CountDownContainer from "../components/CountDown/CountDownContainer";
@@ -32,6 +32,15 @@ describe("CountDown component", () => {
         expect(screen.getByTestId("countDown").textContent).toBe("0m 59s");
       },
       { timeout: 1000 }
+    );
+  });
+
+  test("countdown end", async () => {
+    await waitFor(
+      () => {
+        expect(screen.getByTestId("countDown").textContent).toBe("1m 00s");
+      },
+      { timeout: 60 * 1000 }
     );
   });
 });
