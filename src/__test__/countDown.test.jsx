@@ -1,8 +1,6 @@
 import { screen, waitFor } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import { test } from "vitest";
-import { describe } from "node:test";
-import { expect } from "chai";
 import CountDownContainer from "../components/CountDown/CountDownContainer";
 import ChartContextProvider from "../context/ChartContext";
 import { QueryClient } from "@tanstack/query-core";
@@ -19,7 +17,7 @@ describe("CountDown component", () => {
         </ChartContextProvider>
       </QueryClientProvider>
     );
-    counter = screen.getByTestId('countDown');
+    counter = screen.getByTestId("countDown");
   });
 
   it("should start initially from 1 m", () => {
