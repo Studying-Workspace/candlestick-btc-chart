@@ -22,11 +22,3 @@ jobs:
         run: npm run build
       - name: Test
         run: npm test
-      - name: Report
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: React Tests
-          path: coverage/*.json
-          reporter: jest
-          fail-on-error: true
