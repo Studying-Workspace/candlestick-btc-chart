@@ -98,7 +98,7 @@ describe('SelectMenu component', () => {
 		// Arrange
 		let defaultValue = 'Banana';
 		const helperText = 'Select a fruit';
-		const handleChange = vi.fn(e => defaultValue = e.target.value);
+		const handleChange = vi.fn((e) => (defaultValue = e.target.value));
 
 		const queryClient = new QueryClient();
 		render(
