@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+ 
+on:
+  push:
+    branches:
+      - master
+      
+permissions:
+  contents: write
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set CI environment variable to false
+      run: echo "CI=false" >> $GITHUB_ENV
+      
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+          node-version: '20.x'
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "ahmedgamal2212"
+        git config --global user.email "ahmedgemy2212@gmail.com"
+        git config --global credential.helper store
+        git config --global user.password "${{ secrets.GH_PAGES_DEPLOYMENT_TOKEN  }}"
+
+    - name: Install dependencies
+      run: |
+        npm i
+      
+    - name: Build & Deploy
+      run: |
+        npm run deploy
+
+    
