@@ -5,7 +5,6 @@ import { vi } from 'vitest';
 import ChartContextProvider from '../context/ChartContext';
 import { QueryClient } from '@tanstack/query-core';
 import { QueryClientProvider } from '@tanstack/react-query';
-import userEvent from '@testing-library/user-event'
 import { SelectMenu } from '../components/SelectMenu';
 
 const menuItems = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];

@@ -22,11 +22,11 @@ describe("CountDown component", () => {
     counter = screen.getByTestId('countDown');
   });
 
-  test("countdown start from 1 m", () => {
+  it("should start initially from 1 m", () => {
     expect(counter).toHaveTextContent("1m 00s");
   });
 
-  test("countdown decrements correctly", async () => {
+  it("should decrease the number each second correctly", async () => {
     await waitFor(
       () => {
         expect(screen.getByTestId("countDown").textContent).toBe("0m 59s");
@@ -35,7 +35,7 @@ describe("CountDown component", () => {
     );
   });
 
-  test("countdown end", async () => {
+  it("should end the minute at 1m 00s", async () => {
     await waitFor(
       () => {
         expect(screen.getByTestId("countDown").textContent).toBe("1m 00s");
