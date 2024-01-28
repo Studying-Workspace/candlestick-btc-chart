@@ -1,28 +1,25 @@
-import SelectMenu from "../SelectMenu/SelectMenu.jsx";
-import {coins, timeUnits} from '../../supported-chart-options.js';
-import styles from './ChartOptions.module.css';
+import React from 'react'
+import styles from "./ChartOptions.module.css";
+import SelectMenuContainer from "../SelectMenu";
+import {coins, timeUnits} from "../../supported-chart-options.js";
 
-export const ChartOptions = ({
-                                 coin,
-                                 setCoin,
-                                 isDark,
-                                 timeUnit,
-                                 setTimeUnit,
-                             }) => {
+const ChartOptions = ({coin, setCoin, timeUnit, setTimeUnit}) => {
     return (
         <div className={styles.optionsContainer}>
-            <SelectMenu defaultValue={coin}
-                        setValue={setCoin}
-                        isDark={isDark}
-                        helperText='Choose a coin to show its price changes'
-                        menuItems={coins}
+            <SelectMenuContainer
+                defaultValue={coin}
+                setValue={setCoin}
+                helperText='Choose a coin to show its price changes'
+                menuItems={coins}
             />
-            <SelectMenu defaultValue={timeUnit}
-                        setValue={setTimeUnit}
-                        isDark={isDark}
-                        helperText='Choose a time unit'
-                        menuItems={timeUnits}
+            <SelectMenuContainer
+                defaultValue={timeUnit}
+                setValue={setTimeUnit}
+                helperText='Choose a time unit'
+                menuItems={timeUnits}
             />
         </div>
-    )
-}
+    );
+};
+
+export default ChartOptions;

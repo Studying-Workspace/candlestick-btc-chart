@@ -1,38 +1,16 @@
-import {CountDown} from "../CountDown/CountDown";
-import {CandlestickChart} from "../CandlestickChart/CandlestickChart";
-import styles from "./ChartsBox.module.css";
+import CountDownContainer from "../CountDown";
+import CandlestickChartContainer from "../CandlestickChart";
 import DarkLightModeButton from "../DarkLightModeButton/DarkLightModeButton";
-import {ChartOptions} from "../ChartOptions/ChartOptions.jsx";
+import ChartOptionsContainer from "../ChartOptions";
+import styles from "./ChartsBox.module.css";
 
-const ChartsBox = ({
-                       seriesData,
-                       initialData,
-                       isSeriesLoading,
-                       isInitialLoading,
-                       coin,
-                       setCoin,
-                       isDark,
-                       setIsDark,
-                       timeUnit,
-                       setTimeUnit,
-                   }) => {
+const ChartsBox = () => {
     return (
         <div className={styles.chartBox}>
-            <DarkLightModeButton isDark={isDark} setIsDark={setIsDark}/>
-            <CountDown seconds={60} coin={coin} timeUnit={timeUnit}/>
-            <ChartOptions
-                coin={coin}
-                setCoin={setCoin}
-                isDark={isDark}
-                timeUnit={timeUnit}
-                setTimeUnit={setTimeUnit}
-            />
-            <CandlestickChart
-                data={seriesData}
-                initialData={initialData}
-                isSeriesLoading={isSeriesLoading}
-                isInitialLoading={isInitialLoading}
-            />
+            <DarkLightModeButton />
+            <CountDownContainer seconds={60}/>
+            <ChartOptionsContainer/>
+            <CandlestickChartContainer/>
         </div>
     );
 }

@@ -1,25 +1,13 @@
-import {useEffect, useRef, useState} from "react";
+import React from 'react'
 import styles from "./CountDown.module.css";
 
-export const CountDown = ({seconds, coin, timeUnit}) => {
-    const [countDown, setCountDown] = useState(seconds);
-    const timerId = useRef();
-
-    useEffect(() => {
-        if (timerId.current !== undefined) {
-            clearInterval(timerId.current)
-            setCountDown(seconds);
-        }
-        timerId.current = setInterval(() => {
-            setCountDown((prev) => (prev === 1 ? seconds : prev - 1));
-        }, 1000);
-        return () => clearInterval(timerId.current);
-    }, [coin, timeUnit]);
-
+const CountDown = ({countDown}) => {
     return (
         <div className={styles.container}>
             <span>Until next update: </span>
-            <span>{countDown === 60 ? "1m 00s" : `0m ${countDown}s`}</span>
+            <span data-testid="countDown">{countDown === 60 ? "1m 00s" : `0m ${countDown}s`}</span>
         </div>
-    );
+    )
 };
+
+export default CountDown;
