@@ -22,7 +22,7 @@
                 >
                     {
                         menuItems.map((itemValue, idx) => {
-                            return <MenuItem key={idx} value={itemValue}>{itemValue}</MenuItem>
+                            return <MenuItem key={idx} value={itemValue} data-testid={itemValue}>{itemValue}</MenuItem>
                         })
                     }
                 </Select>
