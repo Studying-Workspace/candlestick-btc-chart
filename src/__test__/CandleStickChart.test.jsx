@@ -10,7 +10,7 @@ beforeAll(() => {
   const series = [
     {
       name: "series-1",
-      data: [{ x: new Date(), y: [10, 20, 5, 15] }],
+      data: { x: new Date(), y: [10, 20, 5, 15] },
     },
   ];
   render(

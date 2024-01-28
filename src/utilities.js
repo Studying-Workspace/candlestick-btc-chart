@@ -30,9 +30,9 @@ export const processDateRepresentation = (date) => {
 
 let processData = (rawData, rowsToExtract) => {
     const processedData = [];
-    for (let i = 0; i < rawData.length; i++) {
+    rawData.forEach((_record, i) => {
         processedData.push(reorderDataRecord(rawData, i));
-    }
+    });
     const len = processedData.length;
     return processedData.reverse().slice(len - rowsToExtract);
 }
