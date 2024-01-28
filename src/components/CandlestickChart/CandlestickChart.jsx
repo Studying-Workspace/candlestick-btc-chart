@@ -4,10 +4,9 @@ import ReactApexChart from "react-apexcharts";
 
 const CandlestickChart = ({ series }) => {
   return (
-    <div className={styles.chartBox}>
+    <div data-testid="candlestick-chart" className={styles.chartBox}>
       <div className="row">
         <ReactApexChart
-          data-testid="candlestick-chart"
           options={{
             chart: {
               id: "basic-bar",

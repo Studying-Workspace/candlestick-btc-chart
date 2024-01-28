@@ -1,6 +1,4 @@
-import { screen, waitFor } from "@testing-library/dom";
-import { render } from "@testing-library/react";
-import { test } from "vitest";
+import { screen, waitFor, render } from "@testing-library/react";
 import CountDownContainer from "../components/CountDown/CountDownContainer";
 import ChartContextProvider from "../context/ChartContext";
 import { QueryClient } from "@tanstack/query-core";

@@ -7,10 +7,16 @@ import ChartContextProvider from "../context/ChartContext";
 
 beforeAll(() => {
   const queryClient = new QueryClient();
+  const series = [
+    {
+      name: "series-1",
+      data: [{ x: new Date(), y: [10, 20, 5, 15] }],
+    },
+  ];
   render(
     <QueryClientProvider client={queryClient}>
       <ChartContextProvider>
-        <CandlestickChart />
+        <CandlestickChart series={series} />
       </ChartContextProvider>
     </QueryClientProvider>
   );
